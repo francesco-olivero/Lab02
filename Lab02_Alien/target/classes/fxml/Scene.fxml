@@ -43,7 +43,7 @@
       </VBox>
    </center>
    <bottom>
-      <Button fx:id="btnReset" mnemonicParsing="false" onAction="#doReset" text="Cleat Text" BorderPane.alignment="CENTER">
+      <Button fx:id="btnReset" mnemonicParsing="false" onAction="#doReset" text="ClearText" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets top="10.0" />
          </BorderPane.margin>

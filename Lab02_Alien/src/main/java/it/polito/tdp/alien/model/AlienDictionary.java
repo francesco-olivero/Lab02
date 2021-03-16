@@ -6,7 +6,7 @@ public class AlienDictionary {
 	
 	LinkedList<Word> parole = new LinkedList<Word>();
 
-	public void addWord (String alienWord, String translation) {	
+	public void addWord (String alienWord, LinkedList<String> translation) {	
 		Word p = wordPresente(alienWord);
 		if (p!=null) {
 			p.setTranslation(translation);
@@ -16,19 +16,23 @@ public class AlienDictionary {
 			}
 		}
 	
+	public Word wordPresente (String alienWord) {
+		for (Word w: parole) {
+			if (alienWord.equals(w.getAlienWord()))
+				return w;
+		}
+		return null;
+	}
 	
-	public String translateWord (String alienWord) {
+	public LinkedList<String> translateWord (String alienWord) {
 		Word p = wordPresente(alienWord);
 		if (p!=null)
 			return p.getTranslation();
 		return null;
 	}
-	
-	public Word wordPresente (String ww) {
-		for (Word w: parole) {
-			if (ww.equals(w.getAlienWord()))
-				return w;
-		}
-		return null;
+
+	public void svuota() {
+		parole.removeAll(parole);
+		
 	}
 }

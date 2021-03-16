@@ -1,6 +1,7 @@
 package it.polito.tdp.alien;
 
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.alien.model.AlienDictionary;
@@ -35,6 +36,7 @@ public class FXMLController {
     @FXML
     void doReset(ActionEvent event) {
     	txtOutput.clear();
+    	dizionario.svuota();
 
     }
 
@@ -48,14 +50,23 @@ public class FXMLController {
 	    	if (input.contains(" ")) {
 	    		String[] array = input.split(" ");
 	    		String alienWord = array[0];
-	    		String translation = array[1];
+	    		LinkedList<String> translation = new LinkedList<String>();
+	    		String tra="";
+	    		for (int i=1; i<array.length; i++) {
+	    			translation.add(array[i]);
+	    			tra += array[i]+", ";
+	    		}
 	    		dizionario.addWord(alienWord, translation);
-	    		txtOutput.setText("aggiunta la parola: "+alienWord+" con traduzione: "+translation);
+	    		txtOutput.setText("aggiunta la parola: "+alienWord+" con traduzione: "+tra);
 	    	}else {
-	    		String output = dizionario.translateWord(input);
-	    		if (output!=null)
-	    			txtOutput.setText("la traduzione di: "+input+" è: "+output);
-	    		else
+	    		LinkedList<String> output = dizionario.translateWord(input);
+	    		String tr = "";
+	    		if (output!=null) {
+	    			for (String ss: output) {
+	    				tr += ss+", ";
+	    			}
+	    			txtOutput.setText("la traduzione di: "+input+" è: "+tr);
+	    		}else
 	    			txtOutput.setText("la parola: "+input+" non è presente nel dizionario");
 	    	}
     	}else {

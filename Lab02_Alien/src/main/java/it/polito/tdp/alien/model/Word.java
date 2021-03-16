@@ -1,12 +1,14 @@
 package it.polito.tdp.alien.model;
 
+import java.util.LinkedList;
+
 public class Word {
 	
 	private String alienWord;
-	private String translation;
+	private LinkedList<String> translation;
 	
 	
-	public Word(String alienWord, String translation) {
+	public Word(String alienWord, LinkedList<String> translation) {
 		this.alienWord = alienWord;
 		this.translation = translation;
 	}
@@ -14,7 +16,7 @@ public class Word {
 	@Override
 	public boolean equals(Object obj) {
 		Word in = (Word) obj;
-		if (this.alienWord.equals(in.getAlienWord()) && this.translation.equals(in.getTranslation()))
+		if (this.alienWord.equals(in.getAlienWord()))
 			return true;
 		return false;
 	}
@@ -23,14 +25,12 @@ public class Word {
 		return alienWord;
 	}
 
-	public String getTranslation() {
+	public LinkedList<String> getTranslation() {
 		return translation;
 	}
 
-	public void setTranslation(String translation) {
+	public void setTranslation(LinkedList<String> translation) {
 		this.translation = translation;
 	}
 	
-	
-
 }
