@@ -34,11 +34,34 @@ public class FXMLController {
 
     @FXML
     void doReset(ActionEvent event) {
+    	txtOutput.clear();
 
     }
 
     @FXML
     void doTranslate(ActionEvent event) {
+    	String input = txtInput.getText();
+    	txtInput.clear();
+    	txtOutput.clear();
+    	if (input.replace(" ","").matches("^[a-zA-Z]*$")) {
+    		input = input.toLowerCase();
+	    	if (input.contains(" ")) {
+	    		String[] array = input.split(" ");
+	    		String alienWord = array[0];
+	    		String translation = array[1];
+	    		dizionario.addWord(alienWord, translation);
+	    		txtOutput.setText("aggiunta la parola: "+alienWord+" con traduzione: "+translation);
+	    	}else {
+	    		String output = dizionario.translateWord(input);
+	    		if (output!=null)
+	    			txtOutput.setText("la traduzione di: "+input+" è: "+output);
+	    		else
+	    			txtOutput.setText("la parola: "+input+" non è presente nel dizionario");
+	    	}
+    	}else {
+    		txtOutput.setText("il testo deve contenere solo lettere da a-z e da A-Z");
+    		return;
+    	}
 
     }
 
