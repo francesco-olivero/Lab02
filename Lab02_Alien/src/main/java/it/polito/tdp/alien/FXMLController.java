@@ -2,6 +2,8 @@ package it.polito.tdp.alien;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import it.polito.tdp.alien.model.AlienDictionary;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,6 +11,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class FXMLController {
+	
+	AlienDictionary dizionario;
 
     @FXML
     private ResourceBundle resources;
