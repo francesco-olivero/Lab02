@@ -5,6 +5,12 @@ public class Word {
 	private String alienWord;
 	private String translation;
 	
+	
+	public Word(String alienWord, String translation) {
+		this.alienWord = alienWord;
+		this.translation = translation;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		Word in = (Word) obj;
@@ -19,6 +25,10 @@ public class Word {
 
 	public String getTranslation() {
 		return translation;
+	}
+
+	public void setTranslation(String translation) {
+		this.translation = translation;
 	}
 	
 	
