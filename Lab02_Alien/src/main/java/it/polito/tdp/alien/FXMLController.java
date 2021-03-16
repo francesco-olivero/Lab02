@@ -23,7 +23,7 @@ public class FXMLController {
     private Button btnTranslate;
 
     @FXML
-    private TextArea txtOutput;
+    private TextArea txtOutput; 
 
     @FXML
     private Button btnReset;
